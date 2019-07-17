@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+}
+
+.page {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: .5em;
+    margin: .5em;
+}
+
+.grid-item {
+    border: solid 1px black;
+}
+
+/* Page 1 */
+.page1 {
+    grid-template-columns: 200px 1fr 2fr;
+}
+.page1 .grid-item{
+    background-color: red;
+}
+.page1 .grid-item:nth-of-type(4) {
+    grid-column: span 3;
+    grid-row-start: 4;
+}
+
+/* Page 3 */
+.page2 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4,1fr)
+}
+.page2 .grid-item{
+    background-color: blue;
+}
+.page2 .grid-item:nth-of-type(2) {
+    grid-column: span 2;
+}
+.page2 .grid-item:nth-of-type(3) {
+    grid-row: span 2;
+}
+.page2 .grid-item:nth-of-type(4) {
+    grid-column: 3/4;
+}
+
+/* Page 3 */
+.page3 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,1fr)
+}
+.page3 .grid-item{
+    background-color: magenta;
+}
+.page3 .grid-item:nth-of-type(2) {
+    grid-column: 2;
+    grid-row: 2;
+}
+.page3 .grid-item:nth-of-type(3) {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+/* Page 4 */
+.page4 .grid-item {
+    background-color: cyan;
+}
+.page4 .grid-item:nth-of-type(1) {
+    grid-column: 2 / span 2;
+}
+.page4 .grid-item:nth-of-type(2) {
+    grid-column: 5;
+}
+.page4 .grid-item:nth-of-type(3) {
+    grid-row: 3 / span 4;
+}
+.page4 .grid-item:nth-of-type(4) {
+    grid-column: 3 /pan 2;
+}
+
+/* js-specific classes. these classes are used to trigger some specific behavior via javascript*/
+.js-page {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.js-page.leaving{
+    transform: translateX(100%);
+}
+
+.js-page.entering{
+    transform: translateX(-100%);
+}
+
+.js-page:not(.active) {
+    display: none;
+}
+
+.fade {
+    opacity: 0;
+}
+
+.slideleft {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+.slideright {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.scale {
+    transform: scale(0);
+}
+
+.rotate {
+    transform: rotateY(90DEG);
+    perspective: 1000px;
+    opacity: 0;
+}
+
+.slideup {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+.slidedown {
+    opacity: 0;
+    transform: translateY(100%);
+}
