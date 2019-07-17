@@ -4,7 +4,7 @@ const MOBILE_REGEX = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera M
 
 // Helper functions
 const getPageElements = () => [...document.querySelectorAll('.page')];
-const isMobile = () => window.innerWidth <= WIDTH_BREAKPOINT &&  MOBILE_REGEX.test(navigator.userAgent);
+const isMobile = () => window.innerWidth <= WIDTH_BREAKPOINT &&  MOBILE_REGEX.test(navigator.userAgent); // not needed anymore since we handle navigation on mobile : )
 
 function handleNavigation(){
     // navigation constants
@@ -140,9 +140,9 @@ function handleNavigation(){
 
 
 function init(){
-    if (!isMobile()){
+    // if (!isMobile()){
         handleNavigation();
-    }
+    // }
 }
 
 document.addEventListener('DOMContentLoaded', init);
